@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--
+ =============================================================================
+ ECOMART HOME PAGE - EcoMart E-Commerce Website
+ =============================================================================
+ 
+ PAGE DESCRIPTION:
+ This is the main homepage of EcoMart, featuring:
+ - Hero section with welcome message
+ - Featured products preview
+ - Categories section
+ - About section
+ - Newsletter signup
+ - Footer with navigation links
+
+ WHY INLINE CSS IS USED (Inline Styles):
+ ----------------------------------------
+ 1. Quick styling overrides for specific elements
+ 2. Dynamic styling based on JavaScript calculations
+ 3. Email templates and offline documents
+ 4. Testing styles before moving to external stylesheet
+ 5. Single-use styles that don't warrant a class
+
+ JUSTIFICATION FOR CSS TYPES USED:
+ ---------------------------------
+ - EXTERNAL CSS (external.css): Maintains consistency across all pages,
+   improves performance through caching, and separates concerns
+   
+ - INTERNAL CSS (style tag): Page-specific styles that don't need to be
+   shared, custom animations for this page only
+   
+ - INLINE CSS: Quick styling for specific elements, overrides when needed
+
+ =============================================================================
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        WHY META TAGS ARE USED:
+        ------------------------
+        charset: Defines character encoding for proper text display
+        viewport: Ensures responsive design on mobile devices
+        description: SEO - describes page content for search engines
+        keywords: SEO - relevant keywords for search ranking
+        author: Identifies the content creator
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoMart - Your destination for sustainable lifestyle products. Shop eco-friendly bamboo bottles, organic tote bags, and reusable kitchen items.">
+    <meta name="keywords" content="sustainable products, eco-friendly, bamboo bottles, organic bags, reusable items, green living">
+    <meta name="author" content="EcoMart Development Team">
+    
+    <title>EcoMart - Sustainable Lifestyle Products</title>
+    
+    <!--
+        WHY EXTERNAL CSS IS LINKED:
+        ----------------------------
+        1. Single source of truth for all shared styles
+        2. Browser caching improves page load speed
+        3. Easier maintenance - change once, apply everywhere
+        4. Smaller HTML file sizes
+        5. Better collaboration between designers and developers
+    -->
+    <link rel="stylesheet" href="css/external.css">
+    
+    <!--
+        INTERNAL CSS - Page-specific styles
+        These styles are unique to the home page and don't need to be shared
+    -->
+    <style>
+        /* Hero section specific styles */
+        .hero {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a8b4c 50%, #6abf69 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* Stats section specific styles */
+        .stats-section {
+            background: #fff;
+            padding: 40px 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #2d5a27;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Features section */
+        .features-section {
+            background: #f5f9f5;
+            padding: 60px 20px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: #2d5a27;
+            margin-bottom: 15px;
+        }
+        
+        /* Newsletter section inline styles */
+        .newsletter-section {
+            background: #2d5a27;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .newsletter-form input {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 300px;
+            max-width: 100%;
+        }
+        
+        /* About preview section */
+        .about-preview {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-preview h2 {
+            color: #2d5a27;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-preview p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        ==================================================================
+        HEADER SECTION
+        ==================================================================
+    -->
+    <header>
+        <div class="header-container">
+            <!-- Inline CSS for logo - specific styling that overrides external -->
+            <a href="index.html" class="logo" style="font-size: 2.2rem; font-weight: bold; color: white;">
+                Eco<span style="color: #a8e6a3;">Mart</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="background-color: #3d7a37; padding: 10px 20px; border-radius: 5px;">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--
+        ==================================================================
+        HERO SECTION
+        ==================================================================
+    -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to EcoMart</h1>
+            <p>Your one-stop destination for sustainable lifestyle products. Discover eco-friendly alternatives that help protect our planet while enhancing your daily life.</p>
+            <a href="products.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">Shop Now</a>
+            <a href="about.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 40px;">Learn More</a>
+        </div>
+    </section>
+
+    <!--
+        ==================================================================
+        STATS SECTION
+        ==================================================================
+    -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Eco-Friendly Products</p>
+            </div>
+            <div class="stat-item">
+                <h3>10K+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Sustainable Brands</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Organic Materials</p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        ==================================================================
+        FEATURES SECTION
+        ==================================================================
+    -->
+    <section class="features-section">
+        <div class="section-title">
+            <h2>Why Choose EcoMart?</h2>
+            <p>We're committed to providing the best sustainable products for a better tomorrow</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>100% Organic</h3>
+                <p>All our products are made from certified organic materials that are safe for you and the environment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">♻️</div>
+                <h3>Zero Waste Packaging</h3>
+                <p>We use biodegradable and recyclable packaging to minimize our environmental footprint.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Carbon Neutral Shipping</h3>
+                <p>All our deliveries are carbon neutral, offsetting emissions through reforestation projects.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💚</div>
+                <h3>Eco-Conscious</h3>
+                <p>Every purchase supports environmental initiatives and sustainable manufacturing practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        ==================================================================
+        FEATURED PRODUCTS SECTION
+        ==================================================================
+    -->
+    <section style="padding: 60px 20px; background: #fff;">
+        <div class="section-title">
+            <h2>Featured Products</h2>
+            <p>Discover our most popular sustainable products</p>
+        </div>
+        <!-- Products loaded dynamically via JavaScript -->
+        <div class="products-grid" id="featuredProducts"></div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="products.html" class="btn btn-primary">View All Products</a>
+        </div>
+    </section>
+
+    <!--
+        ==================================================================
+        CATEGORIES SECTION
+        ==================================================================
+    -->
+    <section style="padding: 60px 20px; background: #f5f9f5;">
+        <div class="section-title">
+            <h2>Shop by Category</h2>
+            <p>Find exactly what you need in our organized categories</p>
+        </div>
+        <div class="categories-grid">
+            <a href="products.html" class="category-card">
+                <div class="category-icon">🍶</div>
+                <h3>Bamboo Bottles</h3>
+                <p>Eco-friendly hydration solutions</p>
+            </a>
+            <a href="products.html" class="category-card">
+                <div class="category-icon">👜</div>
+                <h3>Organic Bags</h3>
+                <p>Sustainable carrying solutions</p>
+            </a>
+            <a href="products.html" class="category-card">
+                <div class="category-icon">🛁</div>
+                <h3>Bathroom Essentials</h3>
+                <p>Natural personal care products</p>
+            </a>
+            <a href="products.html" class="category-card">
+                <div class="category-icon">🍳</div>
+                <h3>Kitchen Items</h3>
+                <p>Reusable kitchen solutions</p>
+            </a>
+        </div>
+    </section>
+
+    <!--
+        ==================================================================
+        ABOUT PREVIEW SECTION
+        ==================================================================
+    -->
+    <section class="about-preview">
+        <h2>About EcoMart</h2>
+        <p>EcoMart was founded with a simple mission: to make sustainable living accessible and affordable for everyone. We carefully curate products that are not only good for you but also good for our planet.</p>
+        <p>Our team is passionate about environmental conservation and works tirelessly to find the best eco-friendly alternatives to everyday products. From bamboo water bottles to organic cotton bags, each item in our collection is selected based on its sustainability credentials and quality.</p>
+        <a href="about.html" class="btn btn-primary">Meet Our Team</a>
+    </section>
+
+    <!--
+        ==================================================================
+        NEWSLETTER SECTION
+        ==================================================================
+    -->
+    <section class="newsletter-section">
+        <h2>Join Our Eco-Community</h2>
+        <p>Subscribe to our newsletter for eco-tips, sustainable living guides, and exclusive offers</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </section>
+
+    <!--
+        ==================================================================
+        FOOTER SECTION
+        ==================================================================
+    -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>EcoMart</h4>
+                <p>Your destination for sustainable lifestyle products. Making the world greener, one product at a time.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="products.html">Bamboo Bottles</a></li>
+                    <li><a href="products.html">Organic Bags</a></li>
+                    <li><a href="products.html">Bathroom Essentials</a></li>
+                    <li><a href="products.html">Kitchen Items</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: info@ecomart.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                    <li>Address: 123 Green Street, Eco City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMart. All rights reserved. | Designed with ❤️ for the planet</p>
+        </div>
+    </footer>
+
+    <!--
+        ==================================================================
+        PRODUCT DETAIL MODAL (Hidden by default)
+        ==================================================================
+    -->
+    <div id="productModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <span class="modal-close" onclick="closeModal('productModal')">&times;</span>
+            <div id="modalBody">
+                <!-- Content loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!--
+        ==================================================================
+        JAVASCRIPT INTEGRATION
+        ==================================================================
+        
+        WHY EXTERNAL JAVASCRIPT IS USED:
+        ---------------------------------
+        1. Code reusability across multiple pages
+        2. Browser caching for faster loading
+        3. Separation of concerns (structure, style, behavior)
+        4. Easier debugging and maintenance
+        5. Better collaboration between team members
+        
+        DEFER ATTRIBUTE:
+        - Script executes after HTML parsing is complete
+        - Non-blocking, improves page load performance
+        - Ensures DOM is ready before script execution
+    -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
+

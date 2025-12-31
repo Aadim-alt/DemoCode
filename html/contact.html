@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact EcoMart - Get in touch for questions, support, or partnership opportunities">
+    <title>Contact Us - EcoMart Sustainable Lifestyle Store</title>
+    <link rel="stylesheet" href="../css/external.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 50%, #4a8b4c 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 15px; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .contact-content { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .contact-info, .contact-form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .contact-info h2, .contact-form-container h2 { color: #2d5a27; font-size: 1.8rem; margin-bottom: 10px; }
+        .contact-info > p, .contact-form-container > p { color: #666; margin-bottom: 30px; }
+        .info-cards { display: flex; flex-direction: column; gap: 20px; }
+        .info-card { display: flex; align-items: flex-start; gap: 20px; padding: 25px; background: #f9f9f9; border-radius: 15px; transition: all 0.3s ease; }
+        .info-card:hover { background: #f5f9f5; transform: translateX(10px); }
+        .info-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #2d5a27 0%, #4a8b4c 100%); color: white; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .info-text h3 { color: #333; font-size: 1.1rem; margin-bottom: 5px; }
+        .info-text p { color: #666; line-height: 1.6; }
+        .info-text a { color: #2d5a27; text-decoration: none; }
+        .info-text a:hover { text-decoration: underline; }
+        .social-section { margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; }
+        .social-section h3 { color: #333; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-link { width: 50px; height: 50px; background: #2d5a27; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: #1a3a1a; transform: translateY(-5px); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .form-group label .required { color: #e74c3c; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px 20px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s ease; background: #f9f9f9; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #2d5a27; background: white; box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.1); }
+        .form-group textarea { resize: vertical; min-height: 150px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-submit { text-align: center; }
+        .submit-btn { background: linear-gradient(135deg, #2d5a27 0%, #4a8b4c 100%); color: white; border: none; padding: 18px 50px; font-size: 1.1rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
+        .submit-btn:hover { background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 100%); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(45, 90, 39, 0.3); }
+        .success-message { background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: none; border-left: 4px solid #28a745; }
+        .success-message.show { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .map-section h2, .faq-section h2 { color: #2d5a27; font-size: 1.8rem; text-align: center; margin-bottom: 30px; }
+        .map-container, .faq-list { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .map-placeholder { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 15px; padding: 80px 40px; text-align: center; border: 2px dashed #a5d6a7; }
+        .map-placeholder .map-icon { font-size: 4rem; margin-bottom: 20px; }
+        .map-placeholder h3 { color: #2d5a27; font-size: 1.5rem; margin-bottom: 10px; }
+        .map-placeholder p { color: #666; }
+        .hours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .hours-card { background: #f9f9f9; padding: 25px; border-radius: 15px; text-align: center; }
+        .hours-card h4 { color: #2d5a27; margin-bottom: 15px; font-size: 1.1rem; }
+        .hours-card p { color: #666; margin-bottom: 5px; }
+        .hours-card .time { font-weight: 600; color: #333; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question { padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 1.05rem; transition: all 0.3s ease; background: white; }
+        .faq-question:hover { background: #f9f9f9; color: #2d5a27; }
+        .faq-question .toggle-icon { width: 30px; height: 30px; background: #f5f9f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 1.2rem; }
+        .faq-item.active .faq-question .toggle-icon { background: #2d5a27; color: white; transform: rotate(45deg); }
+        .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: all 0.3s ease; background: #f9f9f9; }
+        .faq-item.active .faq-answer { padding: 25px 30px; max-height: 500px; }
+        .faq-answer p { color: #666; line-height: 1.7; }
+        .error-message { color: #e74c3c; font-size: 0.9rem; margin-top: 5px; display: none; }
+        .form-group.error input, .form-group.error select, .form-group.error textarea { border-color: #e74c3c; }
+        .form-group.error .error-message { display: block; }
+        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Eco<span>Mart</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" style="background-color: #3d7a37; padding: 10px 20px; border-radius: 5px;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <h1>Contact Us</h1>
+        <p>Have questions about sustainable products or need support? We're here to help! Reach out to us through any of the channels below.</p>
+    </section>
+
+    <div class="contact-content">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you! Whether you have questions about our products, need support with an order, or want to explore partnership opportunities, our team is ready to assist.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h3>Our Location</h3>
+                            <p>123 Green Street, Suite 400<br>Portland, OR 97201<br>United States</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-text">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:info@ecomart.com">info@ecomart.com</a></p>
+                            <p><a href="mailto:support@ecomart.com">support@ecomart.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                            <p>Mon-Fri: 9AM - 6PM PST</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💬</div>
+                        <div class="info-text">
+                            <h3>Live Chat</h3>
+                            <p>Available 24/7 for quick questions</p>
+                            <p>Response time: < 2 minutes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                        <a href="#" class="social-link" title="Twitter">𝕏</a>
+                        <a href="#" class="social-link" title="Instagram">📷</a>
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Pinterest">📌</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                <div class="success-message" id="successMessage">
+                    <strong>✓ Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+                </div>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            <span class="error-message">Please enter your first name</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            <span class="error-message">Please enter your last name</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="order">Order Support</option>
+                            <option value="product">Product Question</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message">Please select a subject</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderNumber">Order Number (if applicable)</label>
+                        <input type="text" id="orderNumber" name="orderNumber" placeholder="e.g., ECO-12345">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                        <span class="error-message">Please enter your message</span>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">
+                            <span>📤</span> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h2>Visit Our Office</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <h3>EcoMart Headquarters</h3>
+                    <p>123 Green Street, Suite 400<br>Portland, OR 97201</p>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">
+                        📍 Located in downtown Portland, easily accessible by public transit<br>
+                        🅿️ Free parking available for visitors
+                    </p>
+                </div>
+                <div class="hours-grid">
+                    <div class="hours-card"><h4>📅 Monday - Friday</h4><p class="time">9:00 AM - 6:00 PM</p></div>
+                    <div class="hours-card"><h4>📅 Saturday</h4><p class="time">10:00 AM - 4:00 PM</p></div>
+                    <div class="hours-card"><h4>📅 Sunday</h4><p class="time">Closed</p></div>
+                    <div class="hours-card"><h4>📞 Phone Hours</h4><p class="time">Mon-Fri: 9AM - 6PM</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question"><span>What makes EcoMart products sustainable?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>All products at EcoMart undergo a rigorous sustainability assessment. We evaluate each product based on materials used, manufacturing processes, packaging, transportation carbon footprint, and end-of-life recyclability. We partner only with certified eco-friendly suppliers and ensure transparency in our sourcing and production methods.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>How do you ship your products sustainably?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>We use carbon-neutral shipping partners and offset 100% of our shipping emissions. Our packaging is 100% recycled and recyclable, and we minimize packaging where possible. For local deliveries, we use electric vehicles and bike couriers in urban areas.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>What is your return policy?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>We offer a 30-day return policy for all unused items in original packaging. For sustainability reasons, we encourage customers to donate unwanted items to local charities instead of returning them. If a return is necessary, we provide a prepaid return label and donate returned items to partner organizations.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Do you offer wholesale or bulk ordering?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>Yes! We offer wholesale pricing for businesses and organizations. Bulk discounts are available for orders over 50 items. Please contact our wholesale team at wholesale@ecomart.com for pricing and partnership opportunities.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>How can I track my order?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>Once your order ships, you'll receive an email with a tracking number. You can also track your order by logging into your account and visiting the "My Orders" section. For real-time updates, you can use our live tracking map available in shipping notifications.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Are your products certified organic or fair trade?</span><span class="toggle-icon">+</span></div>
+                    <div class="faq-answer"><p>Many of our products carry certifications such as USDA Organic, Fair Trade, B Corp, and others. Each product page clearly displays applicable certifications. For products without third-party certification, we provide detailed information about our sustainability practices and supplier relationships.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>EcoMart</h4>
+                <p>Your destination for sustainable lifestyle products.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: info@ecomart.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

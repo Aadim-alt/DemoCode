@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!--
+ =============================================================================
+ ECOMART BLOG PAGE - EcoMart E-Commerce Website
+ =============================================================================
+ 
+ PAGE DESCRIPTION:
+ This page features articles about how technology affects daily life and business,
+ with focus on sustainable technology, e-commerce innovations, and green tech.
+
+ BLOG TOPICS COVERED:
+ 1. Technology's role in sustainable shopping
+ 2. Green tech innovations in daily life
+ 3. The future of sustainable e-commerce
+ 4. Digital transformation in eco-friendly business
+
+ WHY INLINE CSS IS USED:
+ -----------------------
+ 1. Article-specific typography and spacing
+ 2. Reading progress bar styling
+ 3. Social share buttons styling
+ 4. Author card styling
+
+ =============================================================================
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read our blog about sustainable technology, eco-friendly innovations, and how technology is shaping a greener future">
+    <meta name="keywords" content="sustainable technology, green tech, eco-friendly business, technology impact, digital sustainability">
+    <meta name="author" content="EcoMart Development Team">
+    
+    <title>Blog - EcoMart Sustainable Lifestyle Store</title>
+    
+    <link rel="stylesheet" href="../css/external.css">
+    
+    <style>
+        /* Blog page header */
+        .page-header {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 50%, #4a8b4c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Blog layout */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Main blog content */
+        .blog-main {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        /* Blog post single */
+        .blog-post-full {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .blog-post-full img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .blog-post-content {
+            padding: 30px;
+        }
+        
+        .blog-post-content h2 {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-body {
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .blog-body p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-body h3 {
+            color: #2d5a27;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .blog-body ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .blog-body ul li {
+            list-style: disc;
+            margin-bottom: 10px;
+        }
+        
+        .blog-body blockquote {
+            border-left: 4px solid #2d5a27;
+            padding: 20px;
+            background: #f5f9f5;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        /* Author bio */
+        .author-bio {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #2d5a27;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .author-info h4 {
+            color: #2d5a27;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Sidebar */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-widget h3 {
+            color: #2d5a27;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #a8e6a3;
+        }
+        
+        .recent-post-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-post-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-post-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .recent-post-item h4 {
+            color: #333;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .recent-post-item h4:hover {
+            color: #2d5a27;
+        }
+        
+        .recent-post-item span {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        /* Tags */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            padding: 8px 16px;
+            background: #e8f5e9;
+            color: #2d5a27;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: #2d5a27;
+            color: white;
+        }
+        
+        /* Newsletter widget */
+        .newsletter-widget {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a8b4c 100%);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+        
+        .newsletter-widget input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-widget button {
+            width: 100%;
+        }
+        
+        /* Social share */
+        .social-share {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .share-facebook { background: #3b5998; }
+        .share-twitter { background: #1da1f2; }
+        .share-linkedin { background: #0077b5; }
+        .share-email { background: #666; }
+        
+        /* Related posts */
+        .related-posts {
+            margin-top: 40px;
+        }
+        
+        .related-posts h3 {
+            color: #2d5a27;
+            margin-bottom: 25px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .related-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .related-card-content {
+            padding: 20px;
+        }
+        
+        .related-card-content h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .related-card-content span {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .sidebar-widget {
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Eco<span>Mart</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html" style="background-color: #3d7a37; padding: 10px 20px; border-radius: 5px;">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Blog</h1>
+        <p>Exploring the intersection of technology, sustainability, and daily life</p>
+    </section>
+
+    <!-- Blog Layout -->
+    <div class="blog-layout">
+        <!-- Main Content -->
+        <div class="blog-main">
+            <!-- Featured Blog Post -->
+            <article class="blog-post-full">
+                <img src="../img/Bicycle.png" alt="Sustainable Technology">
+                <div class="blog-post-content">
+                    <div class="blog-meta">
+                        <span>📅 December 15, 2025</span>
+                        <span>👤 Sarah Johnson</span>
+                        <span>💼 Technology</span>
+                        <span>⏱️ 8 min read</span>
+                    </div>
+                    <h2>How Technology is Transforming Sustainable Shopping</h2>
+                    
+                    <div class="blog-body">
+                        <p>Technology has become an indispensable ally in the quest for sustainable consumption. From artificial intelligence that helps consumers make eco-friendly choices to blockchain technology ensuring supply chain transparency, digital innovations are making it easier than ever to shop responsibly.</p>
+                        
+                        <h3>The Rise of AI-Powered Sustainability</h3>
+                        <p>Artificial intelligence is revolutionizing how we approach sustainable shopping. Modern e-commerce platforms now use sophisticated algorithms to:</p>
+                        <ul>
+                            <li>Recommend eco-friendly alternatives to conventional products</li>
+                            <li>Calculate and display carbon footprints in real-time</li>
+                            <li>Optimize logistics to reduce emissions</li>
+                            <li>Predict sustainable product trends</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Technology is not just a tool; it's a catalyst for change in how we consume and interact with our environment."
+                        </blockquote>
+                        
+                        <h3>Blockchain for Transparency</h3>
+                        <p>Blockchain technology is bringing unprecedented transparency to supply chains. Consumers can now trace the journey of their products from origin to delivery, verifying that ethical and sustainable practices were followed at every step.</p>
+                        
+                        <h3>IoT and Smart Sustainability</h3>
+                        <p>Internet of Things (IoT) devices are enabling smarter, more sustainable living. Smart home systems can optimize energy usage, while connected appliances help reduce waste in our daily routines.</p>
+                        
+                        <h3>The Future is Digital</h3>
+                        <p>As we move forward, digital technologies will continue to play a crucial role in promoting sustainable consumption. Virtual reality showrooms, augmented reality product visualization, and AI-powered personal sustainability assistants are just the beginning of what's possible.</p>
+                    </div>
+                    
+                    <!-- Author Bio -->
+                    <div class="author-bio">
+                        <div class="author-avatar">👩‍💻</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Tech writer and sustainability advocate with over 10 years of experience covering green technology and eco-friendly innovations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Share -->
+                    <div class="social-share">
+                        <div class="share-btn share-facebook">f</div>
+                        <div class="share-btn share-twitter">𝕏</div>
+                        <div class="share-btn share-linkedin">in</div>
+                        <div class="share-btn share-email">✉</div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Second Blog Post -->
+            <article class="blog-post-full">
+                <img src="../img/desk.png" alt="Green Tech in Daily Life">
+                <div class="blog-post-content">
+                    <div class="blog-meta">
+                        <span>📅 December 10, 2025</span>
+                        <span>👤 Michael Chen</span>
+                        <span>🏠 Smart Living</span>
+                        <span>⏱️ 6 min read</span>
+                    </div>
+                    <h2>The Rise of Green Tech in Daily Life</h2>
+                    
+                    <div class="blog-body">
+                        <p>Smart home technology has evolved to include numerous eco-friendly features that help households reduce their carbon footprint while saving money. From intelligent thermostats to solar-powered chargers, green tech is becoming mainstream.</p>
+                        
+                        <h3>Smart Home Ecosystems</h3>
+                        <p>Modern smart home systems offer comprehensive energy management solutions. These systems learn your patterns and optimize energy usage automatically, ensuring that electricity is used efficiently throughout the day.</p>
+                        
+                        <h3>Renewable Energy Integration</h3>
+                        <p>Solar panels, wind turbines, and home battery storage systems are becoming increasingly affordable and efficient. Smart inverters and energy management systems maximize the use of generated renewable energy.</p>
+                    </div>
+                    
+                    <div class="author-bio">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Sustainable living expert and smart home technology consultant helping families transition to green energy solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Third Blog Post -->
+            <article class="blog-post-full">
+                <img src="../img/shampoo.png" alt="E-Commerce Future">
+                <div class="blog-post-content">
+                    <div class="blog-meta">
+                        <span>📅 December 5, 2025</span>
+                        <span>👤 Emily Rodriguez</span>
+                        <span>🏪 Business</span>
+                        <span>⏱️ 7 min read</span>
+                    </div>
+                    <h2>E-Commerce and the Future of Sustainable Business</h2>
+                    
+                    <div class="blog-body">
+                        <p>The e-commerce industry is undergoing a green transformation. Companies are adopting sustainable packaging solutions, optimizing delivery routes using AI algorithms, and implementing circular economy models.</p>
+                        
+                        <h3>Circular Economy Models</h3>
+                        <p>Forward-thinking e-commerce companies are moving beyond simple sales to implement take-back programs, product-as-a-service models, and recycling initiatives that keep products in use longer.</p>
+                        
+                        <h3>Sustainable Packaging Innovation</h3>
+                        <p>From mushroom-based packaging to seaweed-derived wrapping materials, innovative solutions are emerging to replace single-use plastics in shipping and packaging.</p>
+                    </div>
+                    
+                    <div class="author-bio">
+                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Business strategist specializing in sustainable commerce and corporate environmental responsibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="blog-sidebar">
+            <!-- Recent Posts Widget -->
+            <div class="sidebar-widget">
+                <h3>Recent Posts</h3>
+                <div class="recent-post-item">
+                    <img src="../img/Bicycle.png" alt="Sustainable Shopping">
+                    <div>
+                        <h4>How Technology is Transforming Sustainable Shopping</h4>
+                        <span>Dec 15, 2025</span>
+                    </div>
+                </div>
+                <div class="recent-post-item">
+                    <img src="../img/desk.png" alt="Green Tech">
+                    <div>
+                        <h4>The Rise of Green Tech in Daily Life</h4>
+                        <span>Dec 10, 2025</span>
+                    </div>
+                </div>
+                <div class="recent-post-item">
+                    <img src="../img/shampoo.png" alt="E-Commerce">
+                    <div>
+                        <h4>E-Commerce and the Future of Sustainable Business</h4>
+                        <span>Dec 5, 2025</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories Widget -->
+            <div class="sidebar-widget">
+                <h3>Categories</h3>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px; list-style: disc;"><a href="#" style="color: #555;">Technology Impact (12)</a></li>
+                    <li style="margin-bottom: 10px; list-style: disc;"><a href="#" style="color: #555;">Sustainable Living (8)</a></li>
+                    <li style="margin-bottom: 10px; list-style: disc;"><a href="#" style="color: #555;">Business Trends (6)</a></li>
+                    <li style="margin-bottom: 10px; list-style: disc;"><a href="#" style="color: #555;">Eco Products (10)</a></li>
+                    <li style="list-style: disc;"><a href="#" style="color: #555;">Green Innovation (5)</a></li>
+                </ul>
+            </div>
+            
+            <!-- Tags Widget -->
+            <div class="sidebar-widget">
+                <h3>Popular Tags</h3>
+                <div class="tags-container">
+                    <span class="tag">#sustainability</span>
+                    <span class="tag">#greentech</span>
+                    <span class="tag">#ecofriendly</span>
+                    <span class="tag">#innovation</span>
+                    <span class="tag">#smartliving</span>
+                    <span class="tag">#circular economy</span>
+                    <span class="tag">#renewable</span>
+                    <span class="tag">#digitaltransformation</span>
+                </div>
+            </div>
+            
+            <!-- Newsletter Widget -->
+            <div class="sidebar-widget newsletter-widget">
+                <h3>Stay Updated</h3>
+                <p style="margin-bottom: 15px;">Get the latest insights on sustainable technology delivered to your inbox.</p>
+                <input type="email" placeholder="Your email address">
+                <button class="btn btn-primary" onclick="showNotification('Thanks for subscribing!', 'success')">Subscribe</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>EcoMart</h4>
+                <p>Your destination for sustainable lifestyle products.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: info@ecomart.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <span class="modal-close" onclick="closeModal('blogModal')">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
+
